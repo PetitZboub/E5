@@ -136,4 +136,25 @@ $(function () {
 
 });
 
+$(document).ready(function() {
+    $('.music_song').click(function() {
+        var musicSrc = $(this).data('music-src');
+        var musicId = $(this).data('music-id');
+
+        console.log('Chanson sélectionnée:', musicSrc, 'ID:', musicId);
+
+        // Mettre à jour la source de l'audio
+        $('#lecteuraudio').attr('src', musicSrc);
+        $('#lecteuraudio')[0].play();
+
+        // Envoyer la requête AJAX pour incrémenter le compteur
+        $.post('update_counter.php', { id: musicId }, function(response) {
+            console.log('Réponse du serveur:', response);
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            console.error('Erreur AJAX:', textStatus, errorThrown);
+        });
+    });
+});
+
+
 	  //-->
