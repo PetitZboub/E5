@@ -17,7 +17,7 @@
         echo "<p class='error'>" . htmlspecialchars($_GET['error']) . "</p>";
     }
     ?>
-    <form action="connexion_action.php" method="post">
+    <form action="connexion_action.php" method="get">
         <label for="email">Email :</label>
         <input type="email" name="email" id="email" required>
         <label for="mot_de_passe">Mot de passe :</label>

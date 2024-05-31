@@ -7,8 +7,8 @@ $password="";
 $dbname ="canardsound";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$email = $_POST['email'];
-$mot_de_passe = $_POST['mot_de_passe'];
+$email = $_GET['email'];
+$mot_de_passe = $_GET['mot_de_passe'];
 
 
 // Vérifiez si l'utilisateur existe dans la base de données
@@ -19,7 +19,7 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
-    if (password_verify($mot_de_passe, $user['mot_de_passe'])) {
+    if ($mot_de_passe == $row['mot_de_passe'] && $email == $row['$email'] ) {
         // Démarrez la session et enregistrez les informations de l'utilisateur
         session_start();
         $_SESSION['user_id'] = $user['id'];
