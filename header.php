@@ -5,6 +5,7 @@
   <nav>
     <ul>
       <li><a href="connexion.php">Connexion</a></li>
+      <li><a href="classement.php">classement</a></li>
     </ul>
   </nav>
  <? 
